@@ -1,4 +1,4 @@
-# Copyright (c) 2017-2024, The Khronos Group Inc.
+# Copyright (c) 2017-2023, The Khronos Group Inc.
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -34,11 +34,17 @@ endif()
 set_target_properties(
     openxr_runtime_list_json PROPERTIES FOLDER ${TESTS_FOLDER}
 )
-target_link_libraries(openxr_runtime_list_json PRIVATE OpenXR::openxr_loader)
+### MACOS-METAQUEST3 CHANGE START
+target_link_libraries(openxr_runtime_list_json
+        PRIVATE OpenXR::openxr_loader
+        PUBLIC  OpenXR::headers
+)
 target_include_directories(
     openxr_runtime_list_json PRIVATE "${PROJECT_SOURCE_DIR}/src"
                                      "${PROJECT_SOURCE_DIR}/src/common"
+                                     "${PROJECT_SOURCE_DIR}/build/macos/include"
 )
+### MACOS-METAQUEST3 CHANGE END
 target_link_libraries(openxr_runtime_list_json PRIVATE OpenXR::openxr_loader)
 
 if(XR_USE_GRAPHICS_API_VULKAN)

@@ -68,6 +68,9 @@
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
+<!-- MACOS-METAQUEST3 CHANGE START -->
+        <category android:name="com.oculus.intent.category.VR" />
+<!-- MACOS-METAQUEST3 CHANGE END -->
         <category android:name="org.khronos.openxr.intent.category.IMMERSIVE_HMD" />
       </intent-filter>
     </activity>

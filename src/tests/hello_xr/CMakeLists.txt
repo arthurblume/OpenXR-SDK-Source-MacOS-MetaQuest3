@@ -94,7 +94,12 @@ set_target_properties(hello_xr PROPERTIES FOLDER ${SAMPLES_FOLDER})
 source_group("Headers" FILES ${LOCAL_HEADERS})
 source_group("Shaders" FILES ${VULKAN_SHADERS})
 
-target_link_libraries(hello_xr PRIVATE OpenXR::openxr_loader)
+### MACOS-METAQUEST3 CHANGE START
+target_link_libraries(hello_xr
+    PRIVATE OpenXR::openxr_loader
+    PUBLIC OpenXR::headers
+)
+### MACOS-METAQUEST3 CHANGE END
 
 compile_glsl(run_hello_xr_glsl_compiles ${VULKAN_SHADERS})
 
@@ -110,6 +115,9 @@ target_include_directories(
         "${PROJECT_SOURCE_DIR}/external/include"
         # For including compiled shaders
         "${CMAKE_CURRENT_BINARY_DIR}"
+### MACOS-METAQUEST3 CHANGE START
+        "${PROJECT_SOURCE_DIR}/build/macos/include"
+### MACOS-METAQUEST3 CHANGE END
 )
 
 target_link_libraries(hello_xr PRIVATE OpenXR::openxr_loader)
