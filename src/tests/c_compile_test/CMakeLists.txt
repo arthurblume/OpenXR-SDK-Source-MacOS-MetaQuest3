@@ -45,7 +45,7 @@ if(XR_USE_GRAPHICS_API_VULKAN)
     )
 endif()
 
-target_link_libraries(openxr_c_compile_test OpenXR::openxr_loader OpenXR::headers)
+target_link_libraries(openxr_c_compile_test openxr_loader headers)
 
 if(MSVC)
     target_compile_options(

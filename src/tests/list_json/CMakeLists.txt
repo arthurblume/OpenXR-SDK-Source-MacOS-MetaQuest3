@@ -36,8 +36,8 @@ set_target_properties(
 )
 ### MACOS-METAQUEST3 CHANGE START
 target_link_libraries(openxr_runtime_list_json
-        PRIVATE OpenXR::openxr_loader
-        PUBLIC  OpenXR::headers
+        PRIVATE openxr_loader
+        PUBLIC  headers
 )
 target_include_directories(
     openxr_runtime_list_json PRIVATE "${PROJECT_SOURCE_DIR}/src"
@@ -45,7 +45,7 @@ target_include_directories(
                                      "${PROJECT_SOURCE_DIR}/build/macos/include"
 )
 ### MACOS-METAQUEST3 CHANGE END
-target_link_libraries(openxr_runtime_list_json PRIVATE OpenXR::openxr_loader)
+target_link_libraries(openxr_runtime_list_json PRIVATE openxr_loader)
 
 if(XR_USE_GRAPHICS_API_VULKAN)
     target_include_directories(

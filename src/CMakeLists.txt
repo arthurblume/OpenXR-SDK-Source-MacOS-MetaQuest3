@@ -125,11 +125,11 @@ set_property(
 option(QUEST_BUILD "Build for Quest" OFF)
 
 if(QUEST_BUILD AND NOT BUILD_LOADER)
-    add_library(OpenXR::openxr_loader SHARED IMPORTED)
+    add_library(openxr_loader SHARED IMPORTED)
     message("OCULUS_OPENXR_MOBILE_SDK=${OCULUS_OPENXR_MOBILE_SDK}")
     set_property(
         TARGET
-            OpenXR::openxr_loader
+            openxr_loader
         PROPERTY
             IMPORTED_LOCATION
             ${OCULUS_OPENXR_MOBILE_SDK}/OpenXR/Libs/Android/${ANDROID_ABI}/${CMAKE_BUILD_TYPE}/libopenxr_loader.so

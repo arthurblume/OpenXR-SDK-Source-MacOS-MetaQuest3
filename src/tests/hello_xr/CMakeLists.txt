@@ -96,8 +96,8 @@ source_group("Shaders" FILES ${VULKAN_SHADERS})
 
 ### MACOS-METAQUEST3 CHANGE START
 target_link_libraries(hello_xr
-    PRIVATE OpenXR::openxr_loader
-    PUBLIC OpenXR::headers
+    PRIVATE openxr_loader
+    PUBLIC headers
 )
 ### MACOS-METAQUEST3 CHANGE END
 
@@ -120,7 +120,7 @@ target_include_directories(
 ### MACOS-METAQUEST3 CHANGE END
 )
 
-target_link_libraries(hello_xr PRIVATE OpenXR::openxr_loader)
+target_link_libraries(hello_xr PRIVATE openxr_loader)
 
 if(GLSLANG_VALIDATOR AND NOT GLSLC_COMMAND)
     target_compile_definitions(hello_xr PRIVATE USE_GLSLANGVALIDATOR)
